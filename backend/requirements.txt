@@ -1,0 +1,8 @@
+# python 3.9.19
+fastapi==0.111.0
+uvicorn==0.30.1
+agno==1.6.3
+google-generativeai==0.5.2
+python-dotenv==1.0.1
+sqlalchemy==2.0.30
+pydantic==2.8.0
