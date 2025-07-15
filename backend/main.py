@@ -3,8 +3,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 from agno.agent import Agent
-from agno.memory.v2.db.sqlite import SqliteMemoryDb
-from agno.memory.v2.memory import Memory
+# from agno.memory.v2.db.sqlite import SqliteMemoryDb
+# from agno.memory.v2.memory import Memory
 from agno.models.google import Gemini
 from agno.tools import tool
 
@@ -17,12 +17,12 @@ load_dotenv()
 app = FastAPI()
 
 # Initialize Agno Memory
-memory = Memory(
-    model=Gemini(id="gemini-1.5-flash"), # Use the specified model for memory management
-    db=SqliteMemoryDb(table_name="user_memories", db_file="tmp/agent.db"),
-    delete_memories=True,
-    clear_memories=True,
-)
+# memory = Memory(
+#     model=Gemini(id="gemini-1.5-flash"), # Use the specified model for memory management
+#     db=SqliteMemoryDb(table_name="user_memories", db_file="tmp/agent.db"),
+#     delete_memories=True,
+#     clear_memories=True,
+# )
 
 # Initialize Agno agent
 agent = Agent(
@@ -45,7 +45,7 @@ agent = Agent(
     tools=[get_total_workers],
     model=Gemini(id="gemini-1.5-flash"), # Use the specified model for the agent
     user_id="worker_estimation_bot", # A unique user ID for the agent
-    memory=memory,
+    # memory=memory,
     enable_agentic_memory=True,
     markdown=True,
 )
